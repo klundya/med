@@ -1,0 +1,7 @@
+42 -> Integer
+Java -> String
+[one, two] -> ArrayList
+[1, 2, 3] -> int[]
+Banking system initialized
+Creating account #1
+BankAccount -> BankAccount

@@ -38,14 +38,16 @@ public class BankAccount {
     static {
         // TODO: bankName = "Java Bank"; выведите "Банковская система инициализирована"
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-
+        bankName = "Java Bank";
+        System.out.println("Banking system initialized");
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
     {
         // TODO: totalAccounts++; выведите "Создание счёта #" + totalAccounts
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-
+        totalAccounts++;
+        System.out.println("Creating account #" + totalAccounts);
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
@@ -55,7 +57,9 @@ public class BankAccount {
      */
     public BankAccount(String owner, double initialBalance) {
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-
+        this.owner = owner;
+        this.balance = initialBalance;
+        this.accountNumber = "ACC-" + totalAccounts;
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
@@ -64,7 +68,11 @@ public class BankAccount {
      */
     public void deposit(double amount) {
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-
+        if (amount <= 0) {
+            System.out.println("Error: amount must be positive");
+            return;
+        }
+        balance += amount;
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
@@ -74,13 +82,21 @@ public class BankAccount {
      */
     public void withdraw(double amount) {
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-
+        if (amount <= 0) {
+            System.out.println("Error: amount must be positive");
+            return;
+        }
+        if (balance < amount) {
+            System.out.println("Error: insufficient funds");
+            return;
+        }
+        balance -= amount;
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
     public static int getTotalAccounts() {
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните totalAccounts
+        return totalAccounts;
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
@@ -91,27 +107,27 @@ public class BankAccount {
     @Override
     public String toString() {
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return ""; // TODO: реализуйте формат выше
+        return String.format("[%s] %s: %.2f RUB.", accountNumber, owner, balance);
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
     public static void main(String[] args) {
-        BankAccount a1 = new BankAccount("Алиса", 1000);
-        BankAccount a2 = new BankAccount("Борис", 500);
+        BankAccount a1 = new BankAccount("Alice", 1000);
+        BankAccount a2 = new BankAccount("Boris", 500);
 
         System.out.println(a1);
         System.out.println(a2);
 
         a1.deposit(500);
-        System.out.println("После пополнения: " + a1);
+        System.out.println("After deposit: " + a1);
 
         a1.withdraw(200);
-        System.out.println("После снятия: " + a1);
+        System.out.println("After withdrawal: " + a1);
 
         a1.withdraw(5000);
 
         a2.deposit(-100);
 
-        System.out.println("Всего счетов: " + BankAccount.getTotalAccounts());
+        System.out.println("Total accounts: " + BankAccount.getTotalAccounts());
     }
 }

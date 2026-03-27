@@ -1,0 +1,5 @@
+ [21:39:10] [DatabaseService] Подключение к jdbc:postgresql://localhost/mydb
+ [21:39:10] [DatabaseService] Подключение установлено
+
+ [21:39:10] [AuthService] Вход пользователя: admin — успешно
+ [21:39:10] [AuthService] ОШИБКА: Вход пользователя: hacker — отказано

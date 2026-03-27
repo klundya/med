@@ -1,0 +1,10 @@
+Banking system initialized
+Creating account #1
+Creating account #2
+[ACC-1] Alice: 1000,00 RUB.
+[ACC-2] Boris: 500,00 RUB.
+After deposit: [ACC-1] Alice: 1500,00 RUB.
+After withdrawal: [ACC-1] Alice: 1300,00 RUB.
+Error: insufficient funds
+Error: amount must be positive
+Total accounts: 2
